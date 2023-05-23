@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:white">
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!-------------------------------------------Asset Management------------------------------------------->
+    <a-assets timeout="10000">
+
+      <a-asset-item id="person" src="./woman_walking/scene.gltf"></a-asset-item>   
+      
+      <a-asset-item id="light" src="./street_light/scene.gltf"></a-asset-item>  
+
+      <a-asset-item id="tree" src="./tree_for_games (1)/scene.gltf"></a-asset-item>  
+
+      <a-asset-item id="grass" src="./realtime_grass/scene.gltf"></a-asset-item>  
+
+      <img id="bg" src="sky.jpg">
+
+    </a-assets>
+
+    <a-sky src="#bg"></a-sky>
+
+    <!-------------------------------------Lights in the scene----------------------------------------------->
+
+    <!--Ambient-->
+    <!--Add Code here-->
+    <a-entity light="type: ambient; intensity: 0.2; color: purple">
+    </a-entity>
+    
+
+
+    <!--Directional-->
+    <!--Add Code here-->
+    <a-entity>
+
+        <a-entity light="type: point; castShadow: true; intensity: 0.3; distance: 1000; decay: 2; color:#8da39"
+          position="0 50 20"></a-entity>
+  
+      </a-entity>
+
+      <a-entity>
+
+        <a-entity light="type: point; castShadow: true; intensity: 0.6; distance: 100; decay: 2; color:yellow"
+          position="5 20 0"></a-entity>
+  
+      </a-entity>
+    
+    
+    <!-------------------------------------Circular Plane----------------------------------------------->
+
+    <a-circle position="-0.4 -0.76 -25" rotation="-90 0 0" radius="100" shadow="receive: true" visible="true"
+      color="#5f8c69">
+    </a-circle>
+
+    <!--------------------------------------GLTF Models----------------------------------------------------------->
+
+    <a-entity>
+      <a-entity position="-5 2 0" rotation="0 55 0" scale="0.005 0.005 0.005" gltf-model="#person" shadow="cast: true;">
+      </a-entity>
+    </a-entity>
+
+    <a-entity>
+        <a-entity position="5 -1 0" rotation="0 55 0" scale="0.5 0.5 0.5" gltf-model="#light" shadow="cast: true;">
+        </a-entity>
+      </a-entity>
+
+      <a-entity>
+        <a-entity position="-10 -1 -3" rotation="0 55 0" scale="0.01 0.01 0.01" gltf-model="#tree" shadow="cast: true;">
+        </a-entity>
+      </a-entity>
+
+      <a-entity>
+        <a-entity position="0 0 0" rotation="0 0 0" scale="5 1 5" gltf-model="#grass" shadow="cast: true;">
+        </a-entity>
+      </a-entity>
+    
+   
+  </a-scene>
+</body>
+
+</html>
